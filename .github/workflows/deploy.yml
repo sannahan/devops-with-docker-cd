@@ -8,10 +8,6 @@ on:
 
 # Job called build runs-on ubuntu-latest
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
-    # we are not interested in this job
-
   publish-docker-hub:
     name: Publish image to Docker Hub
     runs-on: ubuntu-latest
@@ -25,7 +21,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      # Builds devopsdockeruh/docker-hy.github.io
+      # Builds sannahan/express-app
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
